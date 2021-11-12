@@ -2,7 +2,131 @@
 const mainCont = document.querySelector('.main');
 const range = document.getElementById('difficulty');
 const playBtn = document.querySelector('.play-btn')
+const heroes = [
+    {
+        image: './img/batman.jpg',
+        value: 1,
+    },
+    {
+        image: './img/batman.jpg',
+        value: 1,
+    },
+    {
+        image: './img/captain-america.jpg',
+        value: 2,
+    },
+    {
+        image: './img/captain-america.jpg',
+        value: 2,
+    },
+    {
+        image: './img/cat-woman.jpg',
+        value: 3,
+    },
+    {
+        image: './img/cat-woman.jpg',
+        value: 3,
+    },
+    {
+        image: './img/deathpool.jpg',
+        value: 4,
+    },
+    {
+        image: './img/deathpool.jpg',
+        value: 4,
+    },
+    {
+        image: './img/flash.jpg',
+        value: 5,
+    },
+    {
+        image: './img/flash.jpg',
+        value: 5,
+    },
+    {
+        image: './img/hulk.jpg',
+        value: 6,
+    },
+    {
+        image: './img/hulk.jpg',
+        value: 6,
+    },
+    {
+        image: './img/ironman.jpg',
+        value: 7,
+    },
+    {
+        image: './img/ironman.jpg',
+        value: 7,
+    },
+    {
+        image: './img/joker.jpg',
+        value: 8,
+    },
+    {
+        image: './img/joker.jpg',
+        value: 8,
+    },
+    {
+        image: './img/sonic.jpg',
+        value: 9,
+    },
+    {
+        image: './img/sonic.jpg',
+        value: 9,
+    },
+    {
+        image: './img/spiderman.jpg',
+        value: 10,
+    },
+    {
+        image: './img/spiderman.jpg',
+        value: 10,
+    },
+    {
+        image: './img/superman.jpg',
+        value: 11,
+    },
+    {
+        image: './img/superman.jpg',
+        value: 11,
+    },
+    {
+        image: './img/thor.jpg',
+        value: 12,
+    },
+    {
+        image: './img/thor.jpg',
+        value: 12,
+    },
+    {
+        image: './img/venom.jpg',
+        value: 13,
+    },
+    {
+        image: './img/venom.jpg',
+        value: 13,
+    },
+    {
+        image: './img/wolverine.jpg',
+        value: 14,
+    },
+    {
+        image: './img/wolverine.jpg',
+        value: 14,
+    },
+    {
+        image: './img/wonder-woman.jpg',
+        value: 15,
+    },
+    {
+        image: './img/wonder-woman.jpg',
+        value: 15,
+    },
 
+]
+
+const randomNumber = [];
 
 //evento al click
 playBtn.addEventListener('click', function() {
@@ -23,15 +147,23 @@ playBtn.addEventListener('click', function() {
         case '2':
             numberCell = 20;
             cellPerSide = 5;
+            break;
         case '3':
             numberCell = 30;
             cellPerSide = 6;
     }
 
     //generiamo le carte nel container
-    genCard(numberCell, cellPerSide)
+    gen4Numbers(numberCell,)
+    genCard(numberCell, cellPerSide,);
+    console.log(randomNumber);
+    console.log(randomNumber[5]);
 
+    console.log(heroes.length);
+    console.log(randomNumber.length);
+   
 })
+
 
 
 
@@ -42,7 +174,7 @@ playBtn.addEventListener('click', function() {
 
 /* --------------------FUNCTION-------------------- */
 //generazione card
-function genCard(numberCell, cellPerSide) {
+function genCard(numberCell, cellPerSide,) {
     for (let i = 0; i < numberCell; i++) {
         //generiamo il card conteiner
         const cardCont = document.createElement('div');
@@ -56,7 +188,7 @@ function genCard(numberCell, cellPerSide) {
 
         card.innerHTML = `
         <div class="front"><img src="./img/texture-card.jpg" alt=""></div>
-        <div class="back"><img src="./img/ironman.jpg" alt=""></div>
+        <div class="back"><img src="${heroes[randomNumber[i]].image}" alt=""></div>
         `
 
         cardCont.style.height = `calc(100% / ${cellPerSide})`
@@ -64,6 +196,25 @@ function genCard(numberCell, cellPerSide) {
 
         cardCont.addEventListener('click', function() {
             cardCont.classList.add('active')
+
         })
     }
 }
+
+
+//generiamo un numero random
+
+
+function gen4Numbers(numberCell) {
+
+
+    while (randomNumber.length < numberCell) {
+        var newNr = (parseInt(Math.random() * numberCell));
+        if (randomNumber.indexOf(newNr) == -1) {
+            randomNumber.push(newNr);
+        }
+    }
+    console.log(randomNumber);
+    return randomNumber;
+}
+
