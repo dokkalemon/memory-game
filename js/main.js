@@ -206,7 +206,7 @@ function genCard(numberCell, cellPerSide,) {
             console.log(cardSelect[0]);
 
             //controlliamo le carte
-            if (cardSelect[1] !== cardSelect[0]) {
+            if (cardSelect[1] === cardSelect[0]) {
                 console.log('beccata');
             }
             
