@@ -1,0 +1,173 @@
+/* GENERAL */
+/* Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+    line-height: 0;;  
+}
+
+/* Utilities */
+body {
+    background-color: rgb(44, 35, 59);
+    font-family: 'Tulpen One', cursive;
+}
+
+.debug {
+    border: 1px solid red;
+}
+.middle {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Header */
+header {
+    width: 100%;
+}
+
+.header {
+    height: 80px;
+    display: flex;
+}
+
+.header-title {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.header-title h1 {
+    color: white;
+    font-size: 50px;
+}
+
+.header-title h1 i {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.header-control {
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.header-control label {
+    color: white;
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.header-control select {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    font-family: 'Tulpen One', cursive;
+    font-size: 30px;
+    width: 150px;
+    height: 50%;
+}
+
+.header-control option {
+    background-color: black;
+    font-family: 'Tulpen One', cursive;
+}
+
+.play-btn {
+    font-size: 30px;
+    height: 50%;;
+    width: 100px;
+    margin-left: 10px;
+    background-color: transparent;
+    font-family: 'Tulpen One', cursive;
+    color: white;
+    border: none;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.play-btn:hover {
+    background-color: white;
+    color: rgb(44, 35, 59);
+}
+
+/* Main */
+.main {
+    height: 1000px;
+    width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px;
+  margin-bottom: 100px;
+}
+
+.card-conteiner {
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.card {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    backface-visibility: hidden;
+    border-radius: 10px;
+  }
+  .front {
+    background-color: #fff;
+  }
+  .back {
+    background-color: #BDBDBD;
+    transform: rotateY(180deg);
+  }
+  .active .front {transform: rotateY(180deg);}
+  .active .back {transform: rotateY(360deg);}
+
+
+
+.card img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 3;
+}
+
+.dispari {
+    filter: invert();
+}
+
+
+
+
+
+
+
+
