@@ -128,6 +128,8 @@ const heroes = [
 
 ]
 const cardSelect = [];
+
+const attempts = []
 //array vuoto di numeri random
 const randomNumber = [];
 
@@ -205,9 +207,13 @@ function genCard(numberCell, cellPerSide,) {
             console.log(cardSelect);
             console.log(cardSelect[0]);
 
+            
+            /* CODICE DA RIVEDERE */
             //controlliamo le carte
             if (cardSelect[1] === cardSelect[0]) {
-                console.log('beccata');
+                cardCont.classList.add('active');
+            } else {
+                cardCont.classList.remove('active');
             }
             
 
