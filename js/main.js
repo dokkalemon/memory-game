@@ -2,6 +2,8 @@
 const mainCont = document.querySelector('.main');
 const range = document.getElementById('difficulty');
 const playBtn = document.querySelector('.play-btn')
+
+//array di supereroi
 const heroes = [
     {
         image: './img/batman.jpg',
@@ -126,6 +128,7 @@ const heroes = [
 
 ]
 
+//array vuoto di numeri random
 const randomNumber = [];
 
 //evento al click
@@ -153,14 +156,11 @@ playBtn.addEventListener('click', function() {
             cellPerSide = 6;
     }
 
-    //generiamo le carte nel container
+    //generiamo l'array di numeri random
     gen4Numbers(numberCell,)
+    //generiamo le carte nel container
     genCard(numberCell, cellPerSide,);
-    console.log(randomNumber);
-    console.log(randomNumber[5]);
-
-    console.log(heroes.length);
-    console.log(randomNumber.length);
+ 
    
 })
 
@@ -186,14 +186,16 @@ function genCard(numberCell, cellPerSide,) {
         card.classList.add('card');
         cardCont.append(card);
 
+        //innestiamo il codice html delle immagini
         card.innerHTML = `
         <div class="front"><img src="./img/texture-card.jpg" alt=""></div>
         <div class="back"><img src="${heroes[randomNumber[i]].image}" alt=""></div>
         `
-
+        //stabiliamo le dimensioni delle carte
         cardCont.style.height = `calc(100% / ${cellPerSide})`
         cardCont.style.width = `calc(100% / ${cellPerSide})`
 
+        //mettiamo la lista active
         cardCont.addEventListener('click', function() {
             cardCont.classList.add('active')
 
@@ -206,8 +208,7 @@ function genCard(numberCell, cellPerSide,) {
 
 
 function gen4Numbers(numberCell) {
-
-
+    //mettiamo un numero univoco
     while (randomNumber.length < numberCell) {
         var newNr = (parseInt(Math.random() * numberCell));
         if (randomNumber.indexOf(newNr) == -1) {
