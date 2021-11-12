@@ -205,11 +205,12 @@ function genCard(numberCell, cellPerSide,) {
             console.log(cardSelect);
             console.log(cardSelect[0]);
 
-            
+            //controlliamo le carte
             if (cardSelect[1] !== cardSelect[0]) {
                 cardCont.classList.remove('active');
             }
             
+            //se l'array di selezione arriva a 2 si riazzera
             for (let i = 0; i < 2; i++) {
                 if (cardSelect.length === 2) {
                     cardSelect.splice(0,2)
