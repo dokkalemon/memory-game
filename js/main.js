@@ -207,9 +207,10 @@ function genCard(numberCell, cellPerSide,) {
 
             //controlliamo le carte
             if (cardSelect[1] !== cardSelect[0]) {
-                cardCont.classList.remove('active');
+                console.log('beccata');
             }
             
+
             //se l'array di selezione arriva a 2 si riazzera
             for (let i = 0; i < 2; i++) {
                 if (cardSelect.length === 2) {
