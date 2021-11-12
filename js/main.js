@@ -127,7 +127,7 @@ const heroes = [
     },
 
 ]
-
+const cardSelect = [];
 //array vuoto di numeri random
 const randomNumber = [];
 
@@ -160,9 +160,12 @@ playBtn.addEventListener('click', function() {
     gen4Numbers(numberCell,)
     //generiamo le carte nel container
     genCard(numberCell, cellPerSide,);
- 
-   
+
 })
+
+
+
+    
 
 
 
@@ -197,7 +200,22 @@ function genCard(numberCell, cellPerSide,) {
 
         //mettiamo la lista active
         cardCont.addEventListener('click', function() {
-            cardCont.classList.add('active')
+            cardCont.classList.add('active');
+            cardSelect.push(heroes[randomNumber[i]].value)
+            console.log(cardSelect);
+            console.log(cardSelect[0]);
+
+            
+            if (cardSelect[1] !== cardSelect[0]) {
+                cardCont.classList.remove('active');
+            }
+            
+            for (let i = 0; i < 2; i++) {
+                if (cardSelect.length === 2) {
+                    cardSelect.splice(0,2)
+                }
+            }   
+
 
         })
     }
