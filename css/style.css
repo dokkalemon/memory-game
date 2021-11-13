@@ -107,6 +107,8 @@ header {
     width: 1000px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   padding: 50px;
   margin-bottom: 100px;
 }
@@ -166,7 +168,14 @@ header {
     filter: invert();
 }
 
+.disabled {
+    pointer-events: none;
+}
 
+.main {
+    font-size: 60px;
+    color: white
+}
 
 
 

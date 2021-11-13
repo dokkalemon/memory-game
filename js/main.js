@@ -129,6 +129,10 @@ const heroes = [
 ]
 const cardSelect = [];
 
+const cardSelected = [];
+
+const cardChecked = []
+
 const attempts = []
 //array vuoto di numeri random
 const randomNumber = [];
@@ -162,12 +166,12 @@ playBtn.addEventListener('click', function() {
     gen4Numbers(numberCell,)
     //generiamo le carte nel container
     genCard(numberCell, cellPerSide,);
-
+    
 })
 
 
 
-    
+
 
 
 
@@ -199,33 +203,46 @@ function genCard(numberCell, cellPerSide,) {
         //stabiliamo le dimensioni delle carte
         cardCont.style.height = `calc(100% / ${cellPerSide})`
         cardCont.style.width = `calc(100% / ${cellPerSide})`
-
+        
         //mettiamo la lista active
         cardCont.addEventListener('click', function() {
             cardCont.classList.add('active');
             cardSelect.push(heroes[randomNumber[i]].value)
-            console.log(cardSelect);
-            console.log(cardSelect[0]);
+
+        
+        
+            const cardContAll = document.querySelectorAll('.card-conteiner');
+           
 
             
-            /* CODICE DA RIVEDERE */
-            //controlliamo le carte
-            if (cardSelect[1] === cardSelect[0]) {
-                cardCont.classList.add('active');
-            } else {
-                cardCont.classList.remove('active');
+            cardSelected.push(cardContAll[i])
+
+
+            if ((cardSelect.length === 2) && (cardSelect[1] !== cardSelect[0])) {
+  
+                cardSelect.splice(0,2);
+                setTimeout(function() {
+                    cardSelected[0].classList.remove('active');
+                    cardSelected[1].classList.remove('active');
+                    cardSelected.splice(0,2);
+                }, 1000)
+            } else if ((cardSelect.length === 2) && (cardSelect[1] === cardSelect[0])) {
+
+                cardSelect.splice(0,2);
+                cardSelected[0].classList.add('disabled');
+                cardSelected[1].classList.add('disabled');
+                cardSelected.splice(0,2);
+                cardChecked.push('1', '1')
+
+            };
+
+            if (cardChecked.length === numberCell) {
+                setTimeout(function() {
+                    mainCont.innerHTML = '<h1>Hai Vinto</h1>'
+                }, 1000)
             }
-            
-
-            //se l'array di selezione arriva a 2 si riazzera
-            for (let i = 0; i < 2; i++) {
-                if (cardSelect.length === 2) {
-                    cardSelect.splice(0,2)
-                }
-            }   
-
-
         })
+        
     }
 }
 
@@ -241,7 +258,6 @@ function gen4Numbers(numberCell) {
             randomNumber.push(newNr);
         }
     }
-    console.log(randomNumber);
     return randomNumber;
 }
 
