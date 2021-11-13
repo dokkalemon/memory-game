@@ -127,12 +127,11 @@ const heroes = [
     },
 
 ]
+
+/* Array per la logica */
 const cardSelect = [];
-
 const cardSelected = [];
-
 const cardChecked = []
-
 const attempts = []
 //array vuoto di numeri random
 const randomNumber = [];
@@ -171,16 +170,6 @@ playBtn.addEventListener('click', function() {
 
 
 
-
-
-
-
-
-
-
-
-
-
 /* --------------------FUNCTION-------------------- */
 //generazione card
 function genCard(numberCell, cellPerSide,) {
@@ -208,18 +197,12 @@ function genCard(numberCell, cellPerSide,) {
         cardCont.addEventListener('click', function() {
             cardCont.classList.add('active');
             cardSelect.push(heroes[randomNumber[i]].value)
-
-        
         
             const cardContAll = document.querySelectorAll('.card-conteiner');
-           
-
-            
             cardSelected.push(cardContAll[i])
 
-
+            //facciamo il controllo delle carte
             if ((cardSelect.length === 2) && (cardSelect[1] !== cardSelect[0])) {
-  
                 cardSelect.splice(0,2);
                 setTimeout(function() {
                     cardSelected[0].classList.remove('active');
@@ -227,13 +210,11 @@ function genCard(numberCell, cellPerSide,) {
                     cardSelected.splice(0,2);
                 }, 1000)
             } else if ((cardSelect.length === 2) && (cardSelect[1] === cardSelect[0])) {
-
                 cardSelect.splice(0,2);
                 cardSelected[0].classList.add('disabled');
                 cardSelected[1].classList.add('disabled');
                 cardSelected.splice(0,2);
                 cardChecked.push('1', '1')
-
             };
 
             if (cardChecked.length === numberCell) {
@@ -242,14 +223,11 @@ function genCard(numberCell, cellPerSide,) {
                 }, 1000)
             }
         })
-        
     }
 }
 
 
 //generiamo un numero random
-
-
 function gen4Numbers(numberCell) {
     //mettiamo un numero univoco
     while (randomNumber.length < numberCell) {
