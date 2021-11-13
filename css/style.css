@@ -177,6 +177,15 @@ header {
     color: white
 }
 
+footer {
+    color: white;
+    font-family: 'Monserrat', sans-serif;
+    font-size: 15px;
+    padding: 20px;
+    text-align: center;
+
+}
+
 
 
 
